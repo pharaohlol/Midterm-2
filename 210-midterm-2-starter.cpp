@@ -11,18 +11,18 @@ const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20;
 class DoublyLinkedList {
 private:
     struct Node {
-        int data;
+        string data;
         Node* prev;
         Node* next;
-        Node(int val, Node* p = nullptr, Node* n = nullptr) {
-            data = val; 
+        Node(string v, Node* p = nullptr, Node* n = nullptr) {
+            data = v; 
             prev = p;
             next = n;
         }
     };
 
-    Node* head;
-    Node* tail;
+    Node* head = nullptr;
+    Node* tail = nullptr;
 
 public:
     DoublyLinkedList() { head = nullptr; tail = nullptr; }
