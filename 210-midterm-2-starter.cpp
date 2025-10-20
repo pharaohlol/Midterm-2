@@ -155,14 +155,15 @@ public:
         else
             head = tail = nullptr;
         delete temp;
+        return v;
     }
 
     void pop_back() {
         if (!tail) {
-            cout << "List is empty." << endl;
-            return;
+            return "";
         }
         Node * temp = tail;
+        string v = temp->data;
 
         if (tail->prev) {
             tail = tail->prev;
@@ -171,6 +172,7 @@ public:
         else
             head = tail = nullptr;
         delete temp;
+        return v;
     }
 
     ~DoublyLinkedList() {
@@ -204,6 +206,15 @@ public:
             current = current->prev;
         }
         cout << endl;
+    }
+
+    int size(){
+        int c=0; Node* t=head;
+        while(t){ c++; t=t->next; }
+        return c;
+    }
+    bool empty(){
+        return head==nullptr;
     }
 };
 
