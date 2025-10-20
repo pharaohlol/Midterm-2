@@ -14,8 +14,8 @@ private:
         string data;
         Node* prev;
         Node* next;
-        Node(string v, Node* p = nullptr, Node* n = nullptr) {
-            data = v; 
+        Node(string val, Node* p = nullptr, Node* n = nullptr) {
+            data = val; 
             prev = p;
             next = n;
         }
@@ -118,7 +118,7 @@ public:
         delete temp;
     }
 
-    void push_back(int v) {
+    void push_back(string v) {
         Node* newNode = new Node(v);
         if (!tail)
             head = tail = newNode;
@@ -129,7 +129,7 @@ public:
         }
     }
     
-    void push_front(int v) {
+    void push_front(string v) {
         Node* newNode = new Node(v);
         if (!head)
             head = tail = newNode;
@@ -140,15 +140,14 @@ public:
         }
     }
     
-    void pop_front() {
+    string pop_front() {
 
         if (!head) {
-            cout << "List is empty." << endl;
-            return;
+            return "";
         }
 
         Node * temp = head;
-
+        string v = temp->data;
         if (head->next) {
             head = head->next;
             head->prev = nullptr;
@@ -209,7 +208,7 @@ public:
 };
 
 int main() {
-    cout << "coffee line sim (stub)\n";// dummy statement to avoid compiler warning
+    srand(time(NULL));
 
     
     return 0;
